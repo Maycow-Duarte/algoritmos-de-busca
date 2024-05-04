@@ -28,7 +28,7 @@ heuristica = {
 
 def AEstrela(inicio, resposta):
     noAtual = inicio
-    print(inicio.upper())
+    caminho = [inicio.upper()]
     while noAtual != resposta:#faz isso até o "noAtual" ser a resposta
         tamanho = len(grafo[noAtual])#armazena a quantidade de filhos do "noAtual". Esse número é usado para que o while percorra os filhos do "noAtual"
         listaDeFilhos = []#após o término do while abaixo as variáveis: "listaDeFilhos", "listaDePesosFilhos", "i" e "acumulaHeuristica" são zeradas 
@@ -45,7 +45,8 @@ def AEstrela(inicio, resposta):
         menor = min(listaDePesosFilhos)#Escolhe o nó com o menor valor de heuristica + peso da lista
         indexMenor = listaDePesosFilhos.index(menor)#armazena o index(o numero da posição) do menor valor
         noAtual = listaDeFilhos[indexMenor]#escolhe como "noAtual" o nó com o menor valor de heuristica + peso
-        print(noAtual.upper())#printa o próximo "noAtual"
+        caminho.append(noAtual.upper())# adiciona na lista de caminhos o próximo "noAtual"
+    return caminho
 
-AEstrela('a', 'g')#chama a função principal, onde o primeiro argumento indica onde começa o caminho, e o segundo mostra o objetivo
+print(AEstrela('a', 'g'))#chama a função principal, onde o primeiro argumento indica onde começa o caminho, e o segundo mostra o objetivo
     
